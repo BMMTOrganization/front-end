@@ -1,7 +1,7 @@
 <h1>CHECKING ACCOUNT</h1>
 
 <div *ngIf="checking">
-  <h4>xxx-xxx-{{checking.accountNumber}}</h4>
+  <h4>xxx-xxx-{{checking.accountNumber % 1000}}</h4>
   <h3>Balance: {{checking.balance | number: '1.2-2'}}</h3>
 </div>
 

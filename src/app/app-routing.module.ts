@@ -11,8 +11,8 @@ import {InvestmentAccountComponent} from './investment-account/investment-accoun
 import {DevPortalComponent} from './dev-portal/dev-portal.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '', component: LoginComponent },
   { path: 'help', component: HelpComponent},
   { path: 'checking', component: CheckingAccountComponent},
   { path: 'savings', component: SavingsAccountComponent},
