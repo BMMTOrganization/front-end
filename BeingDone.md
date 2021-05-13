@@ -6,3 +6,8 @@
 ####Updates
 * User can login, go to home page, go to checking account and it will retrieve account for that user
 * Making checking account display all necessary info
+
+#### 7:23 GD
+* Making buttons to get to help/faq/actions/home for checking account
+* added quick buttons to other user accounts as well
+
