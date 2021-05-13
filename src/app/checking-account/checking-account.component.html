@@ -26,6 +26,8 @@
     </tr>
     </tbody>
   </table>
+  <button *ngIf="limit < 25" (click)="showMoreItems()">View More</button>
+  <button *ngIf="limit > 5" (click)="showLessItems()">ViewLess</button>
   <br>
   <br>
 </div>

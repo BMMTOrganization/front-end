@@ -11,3 +11,6 @@
 * Making buttons to get to help/faq/actions/home for checking account
 * added quick buttons to other user accounts as well
 
+#### 7:40
+* gonna put together the savings and investment accounts
+  * basically utilize the same stuff in checking

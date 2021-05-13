@@ -37,4 +37,16 @@ export class CheckingAccountComponent implements OnInit {
   print(): void {
     console.log(this.checking);
   }
+
+  showMoreItems(): void {
+    if (this.limit < 25) {
+      this.limit += 5;
+    }
+  }
+
+  showLessItems(): void {
+    if (this.limit > 5){
+      this.limit -= 5;
+    }
+  }
 }

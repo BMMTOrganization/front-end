@@ -1,1 +1,39 @@
-<p>savings-account works!</p>
+<h1>SAVINGS ACCOUNT</h1>
+
+<div *ngIf="savings">
+  <h4>xxx-xxx-{{savings.accountNumber % 1000}}</h4>
+  <h3>Balance: {{savings.balance | number: '1.2-2'}}</h3>
+</div>
+
+<div class="transactionTable">
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Transaction Date</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Type</th>
+      <th scope="col">Account from</th>
+      <th scope="col">Account to</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let transaction of transactions | slice:0: limit">
+      <td>{{ transaction.transactionDate }}</td>
+      <td>{{ transaction.amount | number: '1.2-2' }}</td>
+      <td>{{ transaction.transactionType }}</td>
+      <td>{{ transaction.accountOne }}</td>
+      <td>{{ transaction.accountTwo }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <button *ngIf="limit < 25" (click)="showMoreItems()">View More</button>
+  <button *ngIf="limit > 5" (click)="showLessItems()">ViewLess</button>
+  <br>
+  <br>
+</div>
+
+<button routerLink="/home">HOME</button>
+<button routerLink="/transfer">ACCOUNT ACTIONS</button>
+<button routerLink="/help">HELP</button>
+<button routerLink="/checking">CHECKING</button>
+<button routerLink="/investment">INVESTMENT</button>
