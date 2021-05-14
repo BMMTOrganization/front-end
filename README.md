@@ -1,6 +1,6 @@
 # BMMT
 
-##Contributors
+## Contributors
 * Gregory Donnelly
 * Jorge Tapia
 * Ashley Smart
