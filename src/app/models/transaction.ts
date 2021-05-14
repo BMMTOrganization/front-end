@@ -6,5 +6,4 @@ export class Transaction{
   transactionType: string;
   amount: number;
   userId: number;
-
 }

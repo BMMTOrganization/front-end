@@ -161,13 +161,13 @@ export class TransferComponent implements OnInit {
 
   makeTransactionWD(): void {
     const transaction = new Transaction();
-    this.allService.userSingleAccount(this.id, this.accountFrom).subscribe(account => transaction.accountOne = account.accountNumber);
+    this.allService.userSingleAccount(this.id, this.accountFrom)
+      .subscribe(account => transaction.accountOne = account.accountNumber);
     transaction.transactionDate = new Date();
     transaction.transactionType = this.accountAction;
     transaction.amount = Number(this.actAmt);
     transaction.userId = this.id;
     this.allService.createNewTransaction(transaction);
-    console.log(transaction);
   }
 
   makeTransactionT(): void {

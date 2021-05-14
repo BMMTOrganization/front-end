@@ -96,6 +96,7 @@ export class BmmtService {
 
   createNewTransaction(transaction: Transaction): Observable<Transaction> {
     const body = JSON.stringify(transaction);
+    console.log(body);
     return this.http.post<Transaction>(`${this.mainUrl}/transaction`, body, this.httpOptions);
   }
 
