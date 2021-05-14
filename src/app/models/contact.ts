@@ -1,8 +1,8 @@
 export class Contact {
-  private id: number;
-  private number: string;
-  private email: string;
-  private department: string;
+  public id: number;
+  public number: string;
+  public email: string;
+  public department: string;
 
   // tslint:disable-next-line:variable-name
   constructor(id: number, number: string, email: string, department: string) {
