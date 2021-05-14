@@ -105,6 +105,21 @@ export class BmmtService {
     return this.http.get<UserProfile>(this.mainUrl + `/user/username/${userName}`);
   }
 
+  createUserProfile(userProfile: UserProfile): Observable<UserProfile> {
+    const body = JSON.stringify(userProfile);
+    console.log(body);
+    return this.http.post<UserProfile>(`${this.mainUrl}/user`, body);
+  }
+  getUserProfile(ID: number): Observable<UserProfile>{
+    return this.http.get<UserProfile>(`${this.mainUrl}/user/${ID}`);
+  }
+  updateUserProfile(ID: number): Observable<UserProfile> {
+    const body = JSON.stringify(UserProfile);
+    return this.http.post<UserProfile>(`${this.mainUrl}/user/${ID}`, body);
+  }
+  deleteUserProfile(ID: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.mainUrl}/user/${ID}`);
+  }
   // FAQ Methods
 
   public getAllFAQs(): Observable<Faq[]> {
