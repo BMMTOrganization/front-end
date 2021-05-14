@@ -10,10 +10,12 @@ import {Contact} from '../models/contact';
 })
 export class DevPortalComponent implements OnInit {
   private newFaq: Faq;
+  faqID: number;
   newQuestion: string;
   newAnswer: string;
 
   private newContact: Contact;
+  contactID: number;
   newContactNumber: string;
   newContactEmail: string;
   newContactDepartment: string;
@@ -42,6 +44,14 @@ export class DevPortalComponent implements OnInit {
     this.newContact.setNumber(number);
     this.newContact.setEmail(email);
     this.newContact.setDepartment(department);
+    this.service.createContact(this.newContact).subscribe();
   }
 
+  onDelete1(id: number){
+    this.service.deleteFAQ(id).subscribe();
+  }
+
+  onDelete2(id: number){
+    this.service.deleteContact(id).subscribe();
+  }
 }
