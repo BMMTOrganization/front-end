@@ -1,1 +1,15 @@
-<p>dev-portal works!</p>
+<h1 style="text-align: center">Developer Page</h1>
+
+<div class="container">
+
+  <div class="row">
+    <input type="text" id="newQuestion" placeholder="Enter new quesiton here..." [(ngModel)]="newQuestion">
+  </div>
+
+  <div class="row">
+    <input type="text" id="newAnswer" placeholder="Enter the answer here..." [(ngModel)]="answer">
+  </div>
+
+  <button type="button" (click)="onSubmit(newQuestion, answer)"> Submit </button>
+
+</div>
