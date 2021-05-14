@@ -32,6 +32,7 @@ export class CheckingAccountComponent implements OnInit {
             .subscribe(list => this.transactions = list);
         });
     });
+    this.allService.currentUser.subscribe(id => this.id = id);
   }
 
   print(): void {

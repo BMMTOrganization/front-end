@@ -14,3 +14,7 @@
 #### 7:40
 * gonna put together the savings and investment accounts
   * basically utilize the same stuff in checking
+  
+#### 7:55
+* time to work on account actions
+  * first up is withdraw

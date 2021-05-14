@@ -21,8 +21,14 @@ export class BmmtService {
 
   constructor(private http: HttpClient) {
     this.mainUrl = 'http://localhost:8080';
-    this.headers = new HttpHeaders({'Content-Type' : 'application/json'});
-    // this.findByUserName('GREGDON13').subscribe(user => this.currentUser = user);
+    this.headers = new HttpHeaders(
+        {
+          'Access-Control-Allow-Origin' : '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+          'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+          'Content-Type': 'application/json'
+        }
+      );
   }
 
   setUser(id: number): void {
@@ -30,6 +36,10 @@ export class BmmtService {
   }
 
   // account methods
+
+  findAllUserAccounts(userId: number): Observable<any> {
+    return this.http.get(this.mainUrl + `/account/user/` + userId);
+  }
 
   findAccountByUserName(userName: string, accountType: string): Observable<MoneyAccount> {
     return this.http.get<MoneyAccount>(this.mainUrl + `/account/user/` + userName + `/` + accountType);
