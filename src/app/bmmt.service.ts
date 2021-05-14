@@ -103,6 +103,7 @@ export class BmmtService {
 
   createUserProfile(userProfile: UserProfile): Observable<UserProfile> {
     const body = JSON.stringify(userProfile);
+    console.log(body);
     return this.http.post<UserProfile>(`${this.mainUrl}/user`, body);
   }
   getUserProfile(ID: number): Observable<UserProfile>{

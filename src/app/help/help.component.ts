@@ -10,6 +10,7 @@ import {BmmtService} from "../bmmt.service";
 export class HelpComponent implements OnInit, DoCheck{
 
   public faqs: Faq[] = [];
+  answer: string;
 
 
   constructor(private faqService: BmmtService) {
@@ -31,9 +32,10 @@ export class HelpComponent implements OnInit, DoCheck{
     //console.log('checked');
   }
 
-  // share() {
-  //   window.alert(this.faqObject.answer);
-  // }
+  share() {
+    window.alert(this.answer);
+    console.log(this.answer);
+  }
   //
   // getAllFaqs(): void{
   //   this.faqService.getAllFAQs().subscribe();
