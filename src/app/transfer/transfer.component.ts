@@ -90,6 +90,19 @@ export class TransferComponent implements OnInit {
         this.allService.withdrawFunds(this.investmentNumber, this.investmentAcct)
           .subscribe(account => this.allService.investment = account);
       }
+    } else if (this.accountAction === 'DEPOSIT') {
+      this.deposit(this.actAmt);
+      console.log(this.actAmt);
+      if (this.accountFrom === 'Checking'){
+        this.allService.depositFunds(this.checkingNumber, this.checkingAcct)
+          .subscribe(account => this.allService.checking = account);
+      } else if (this.accountFrom === 'SAVINGS') {
+        this.allService.depositFunds(this.savingsNumber, this.savingsAcct)
+          .subscribe(account => this.allService.savings = account);
+      } else if (this.accountFrom === 'INVESTMENT') {
+        this.allService.depositFunds(this.investmentNumber, this.investmentAcct)
+          .subscribe(account => this.allService.investment = account);
+      }
     }
   }
 
@@ -100,6 +113,16 @@ export class TransferComponent implements OnInit {
       this.savingsAcct.balance -= amount;
     } else if (this.accountFrom === 'INVESTMENT') {
       this.investmentAcct.balance -= amount;
+    }
+  }
+
+  deposit(amount: number): void {
+    if (this.accountFrom === 'Checking'){
+      this.checkingAcct.balance += +amount;
+    } else if (this.accountFrom === 'SAVINGS') {
+      this.savingsAcct.balance += +amount;
+    } else if (this.accountFrom === 'INVESTMENT') {
+      this.investmentAcct.balance += +amount;
     }
   }
 
@@ -119,4 +142,6 @@ export class TransferComponent implements OnInit {
     const makeAccount = this.accountMaker();
     this.allService.createAccount(makeAccount);
   }
+
+
 }
