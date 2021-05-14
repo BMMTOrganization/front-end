@@ -48,10 +48,15 @@ export class TransferComponent implements OnInit {
     this.allService.currentUser.subscribe(id => this.id = id);
   }
 
+  printThatShit(): void {
+    console.log(this.checkingNumber);
+    console.log(this.savingsNumber);
+    console.log(this.investmentNumber);
+    console.log(this.actAmt);
+  }
+
   submitAction(): void {
-    // console.log(this.checkingNumber + '  ' + this.actAmt);
-    // this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
-    this.allService.withdrawFunds(987654321, 20.00);
+    this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
   }
 
   accountMaker(): MoneyAccount {

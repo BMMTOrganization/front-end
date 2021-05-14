@@ -27,3 +27,6 @@
 #### 1:18
 * am I losing my mind? Or am I finally thinking clearly?
 * Post account and delete account is working. Time to make the put work with withdraw/deposit
+
+#### 2:20
+* accounts can display all info
