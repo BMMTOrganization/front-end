@@ -70,12 +70,6 @@ export class TransferComponent implements OnInit {
     });
   }
 
-  printThatShit(): void {
-    console.log(this.checkingNumber);
-    console.log(this.savingsNumber);
-    console.log(this.investmentNumber);
-    console.log(this.actAmt);
-  }
 
   submitAction(): void {
     if (this.accountAction === 'WITHDRAW') {
@@ -90,6 +84,19 @@ export class TransferComponent implements OnInit {
         this.allService.withdrawFunds(this.investmentNumber, this.investmentAcct)
           .subscribe(account => this.allService.investment = account);
       }
+    } else if (this.accountAction === 'DEPOSIT') {
+      this.deposit(this.actAmt);
+      console.log(this.actAmt);
+      if (this.accountFrom === 'Checking'){
+        this.allService.depositFunds(this.checkingNumber, this.checkingAcct)
+          .subscribe(account => this.allService.checking = account);
+      } else if (this.accountFrom === 'SAVINGS') {
+        this.allService.depositFunds(this.savingsNumber, this.savingsAcct)
+          .subscribe(account => this.allService.savings = account);
+      } else if (this.accountFrom === 'INVESTMENT') {
+        this.allService.depositFunds(this.investmentNumber, this.investmentAcct)
+          .subscribe(account => this.allService.investment = account);
+      }
     }
   }
 
@@ -100,6 +107,16 @@ export class TransferComponent implements OnInit {
       this.savingsAcct.balance -= amount;
     } else if (this.accountFrom === 'INVESTMENT') {
       this.investmentAcct.balance -= amount;
+    }
+  }
+
+  deposit(amount: number): void {
+    if (this.accountFrom === 'Checking'){
+      this.checkingAcct.balance += +amount;
+    } else if (this.accountFrom === 'SAVINGS') {
+      this.savingsAcct.balance += +amount;
+    } else if (this.accountFrom === 'INVESTMENT') {
+      this.investmentAcct.balance += +amount;
     }
   }
 
@@ -120,19 +137,4 @@ export class TransferComponent implements OnInit {
     this.allService.createAccount(makeAccount);
   }
 
-  submitAction(): void {
-    if (this.accountAction === 'WITHDRAW') {
-      this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
-      // this.allService.currentUser.subscribe(id => {
-      //   this.allService.userSingleAccount(id, this.accountFrom)
-      //     .subscribe(data => this.accountFromBalance = data.balance);
-      // });
-      // if (this.accountFromBalance < this.actAmt) {
-      //   this.errorMessage = 'NOT ENOUGH FUNDS';
-      // } else {
-      //   // catches enough money
-      //   this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
-      // }
-    }
-  }
 }
