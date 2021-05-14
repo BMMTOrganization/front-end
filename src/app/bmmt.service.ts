@@ -22,13 +22,18 @@ export class BmmtService {
   mainUrl: string;
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders(
+      {
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+        'Content-Type': 'application/json'
+      }
+    )
   };
 
   constructor(private http: HttpClient) {
     this.mainUrl = 'http://localhost:8080';
-    this.headers = new HttpHeaders({'Content-Type' : 'application/json'});
-    // this.findByUserName('GREGDON13').subscribe(user => this.currentUser = user);
   }
 
   setUser(id: number): void {
@@ -37,13 +42,21 @@ export class BmmtService {
 
   // account methods
 
+  findAllUserAccounts(userId: number): Observable<any> {
+    return this.http.get(this.mainUrl + `/account/user/` + userId);
+  }
+
+  findAccountByNumber(accountNumber: number): Observable<MoneyAccount> {
+    return this.http.get<MoneyAccount>(this.mainUrl + `/account/number/` + accountNumber);
+  }
+
   findAccountByUserName(userName: string, accountType: string): Observable<MoneyAccount> {
     return this.http.get<MoneyAccount>(this.mainUrl + `/account/user/` + userName + `/` + accountType);
   }
 
   createAccount(moneyAccount: MoneyAccount): Observable<MoneyAccount> {
     const body = JSON.stringify(moneyAccount);
-    return this.http.post<MoneyAccount>(`${this.mainUrl}/account`, body);
+    return this.http.post<MoneyAccount>(`${this.mainUrl}/account`, body, this.httpOptions);
   }
 
   deleteAccount(accountNumber: number): Observable<boolean> {
@@ -55,15 +68,16 @@ export class BmmtService {
   }
 
   withdrawFunds(accountNumber: number, amount: number): Observable<MoneyAccount> {
-    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/withdraw/${accountNumber}/${amount}`, this.headers);
+    const thisAccount = this.findAccountByNumber(accountNumber);
+    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/withdraw/${accountNumber}/${amount}`, thisAccount);
   }
 
   depositFunds(amount: number, accountNumber: number): Observable<MoneyAccount> {
-    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/deposit/${accountNumber}/${amount}`, this.headers);
+    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/deposit/${accountNumber}/${amount}`, this.httpOptions);
   }
 
   transferFunds(amount: number, accountOne: number, accountTwo: number): Observable<MoneyAccount> {
-    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/transfer/${accountOne}/${accountTwo}/${amount}`, this.headers);
+    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/transfer/${accountOne}/${accountTwo}/${amount}`, this.httpOptions);
   }
 
   // transaction methods

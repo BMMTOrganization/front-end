@@ -22,12 +22,19 @@
       <td>{{ transaction.amount | number: '1.2-2' }}</td>
       <td>{{ transaction.transactionType }}</td>
       <td>{{ transaction.accountOne }}</td>
-<!--      <td>{{ transaction.accountTwo }}</td>-->
+      <td>{{ transaction.accountTwo }}</td>
     </tr>
     </tbody>
   </table>
+  <button *ngIf="limit < 25" (click)="showMoreItems()">View More</button>
+  <button *ngIf="limit > 5" (click)="showLessItems()">ViewLess</button>
   <br>
   <br>
 </div>
 
-<button (click)="print()">console</button>
+<button routerLink="/home">HOME</button>
+<button routerLink="/transfer">ACCOUNT ACTIONS</button>
+<button routerLink="/help">HELP</button>
+<button routerLink="/savings">SAVINGS</button>
+<button routerLink="/investment">INVESTMENT</button>
+<button (click)="print()">PRINT</button>
