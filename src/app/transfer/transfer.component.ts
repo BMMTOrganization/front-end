@@ -70,26 +70,20 @@ export class TransferComponent implements OnInit {
     });
   }
 
-  printThatShit(): void {
-    console.log(this.checkingNumber);
-    console.log(this.savingsNumber);
-    console.log(this.investmentNumber);
-    console.log(this.actAmt);
-  }
 
   submitAction(): void {
     if (this.accountAction === 'WITHDRAW') {
       this.withdraw(this.actAmt);
-      if (this.accountFrom === 'Checking'){
-        this.allService.withdrawFunds(this.checkingNumber, this.checkingAcct)
-          .subscribe(account => this.allService.checking = account);
-      } else if (this.accountFrom === 'SAVINGS') {
-        this.allService.withdrawFunds(this.savingsNumber, this.savingsAcct)
-          .subscribe(account => this.allService.savings = account);
-      } else if (this.accountFrom === 'INVESTMENT') {
-        this.allService.withdrawFunds(this.investmentNumber, this.investmentAcct)
-          .subscribe(account => this.allService.investment = account);
-      }
+      this.submitWithdraw();
+    } else if (this.accountAction === 'DEPOSIT') {
+      this.deposit(this.actAmt);
+      console.log(this.actAmt);
+      this.submitDeposit();
+    } else if (this.accountAction === 'TRANSFER') {
+      this.withdraw(this.actAmt);
+      this.depositTransfer(this.actAmt);
+      this.submitWithdraw();
+      this.submitTransferDeposit();
     }
   }
 
@@ -103,36 +97,62 @@ export class TransferComponent implements OnInit {
     }
   }
 
-  accountMaker(): MoneyAccount {
-    const dummyAccount = new MoneyAccount();
-    dummyAccount.accountType = 'Checking';
-    dummyAccount.balance = 4500;
-    dummyAccount.accountNumber = 654978321;
-    dummyAccount.userId = 23;
-    dummyAccount.transactions = [];
-    return dummyAccount;
+  deposit(amount: number): void {
+    if (this.accountFrom === 'Checking'){
+      this.checkingAcct.balance += +amount;
+    } else if (this.accountFrom === 'SAVINGS') {
+      this.savingsAcct.balance += +amount;
+    } else if (this.accountFrom === 'INVESTMENT') {
+      this.investmentAcct.balance += +amount;
+    }
   }
 
-  createAccount(): void {
-    // this.allService.findAllUserAccounts(23)
-    //   .subscribe(list => console.log(list));
-    const makeAccount = this.accountMaker();
-    this.allService.createAccount(makeAccount);
+  depositTransfer(amount: number): void {
+    if (this.accountTo === 'Checking'){
+      this.checkingAcct.balance += +amount;
+    } else if (this.accountTo === 'SAVINGS') {
+      this.savingsAcct.balance += +amount;
+    } else if (this.accountTo === 'INVESTMENT') {
+      this.investmentAcct.balance += +amount;
+    }
   }
 
-  submitAction(): void {
-    if (this.accountAction === 'WITHDRAW') {
-      this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
-      // this.allService.currentUser.subscribe(id => {
-      //   this.allService.userSingleAccount(id, this.accountFrom)
-      //     .subscribe(data => this.accountFromBalance = data.balance);
-      // });
-      // if (this.accountFromBalance < this.actAmt) {
-      //   this.errorMessage = 'NOT ENOUGH FUNDS';
-      // } else {
-      //   // catches enough money
-      //   this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
-      // }
+  submitWithdraw(): void {
+    if (this.accountFrom === 'Checking'){
+      this.allService.withdrawFunds(this.checkingNumber, this.checkingAcct)
+        .subscribe(account => this.allService.checking = account);
+    } else if (this.accountFrom === 'SAVINGS') {
+      this.allService.withdrawFunds(this.savingsNumber, this.savingsAcct)
+        .subscribe(account => this.allService.savings = account);
+    } else if (this.accountFrom === 'INVESTMENT') {
+      this.allService.withdrawFunds(this.investmentNumber, this.investmentAcct)
+        .subscribe(account => this.allService.investment = account);
+    }
+  }
+
+  submitDeposit(): void {
+    if (this.accountFrom === 'Checking'){
+      this.allService.depositFunds(this.checkingNumber, this.checkingAcct)
+        .subscribe(account => this.allService.checking = account);
+    } else if (this.accountFrom === 'SAVINGS') {
+      this.allService.depositFunds(this.savingsNumber, this.savingsAcct)
+        .subscribe(account => this.allService.savings = account);
+    } else if (this.accountFrom === 'INVESTMENT') {
+      this.allService.depositFunds(this.investmentNumber, this.investmentAcct)
+        .subscribe(account => this.allService.investment = account);
+    }
+  }
+
+  submitTransferDeposit(): void {
+    if (this.accountTo === 'Checking'){
+      this.allService.depositFunds(this.checkingNumber, this.checkingAcct)
+        .subscribe(account => this.allService.checking = account);
+    } else if (this.accountTo === 'SAVINGS') {
+      this.allService.depositFunds(this.savingsNumber, this.savingsAcct)
+        .subscribe(account => this.allService.savings = account);
+    } else if (this.accountTo === 'INVESTMENT') {
+      this.allService.depositFunds(this.investmentNumber, this.investmentAcct)
+        .subscribe(account => this.allService.investment = account);
     }
   }
 }
