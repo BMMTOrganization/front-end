@@ -26,7 +26,7 @@
 <div class="accountTo" *ngIf="accountAction == 'TRANSFER'">
   <p>Account to:</p>
   <select class="acctToMenu" [(ngModel)]="accountTo">
-    <option [ngValue]="account" *ngFor="let account of accounts">{{account.accountType}} xxx-xxx-{{account.accountNumber % 1000}}</option>
+    <option [ngValue]="account.accountType" *ngFor="let account of accounts">{{account.accountType}} xxx-xxx-{{account.accountNumber % 1000}}</option>
   </select>
 </div>
 
