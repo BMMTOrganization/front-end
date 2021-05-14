@@ -32,9 +32,35 @@ export class CheckingAccountComponent implements OnInit {
             .subscribe(list => this.transactions = list);
         });
     });
+    this.allService.currentUser.subscribe(id => this.id = id);
   }
 
   print(): void {
-    console.log(this.checking);
+    this.allService.findAccountByNumber(987654321)
+      .subscribe(data => console.log(data));
+  }
+
+  showMoreItems(): void {
+    if (this.limit < 25) {
+      this.limit += 5;
+    }
+  }
+
+  showLessItems(): void {
+    if (this.limit > 5){
+      this.limit -= 5;
+    }
+  }
+
+  showMoreItems(): void {
+    if (this.limit < 25) {
+      this.limit += 5;
+    }
+  }
+
+  showLessItems(): void {
+    if (this.limit > 5){
+      this.limit -= 5;
+    }
   }
 }

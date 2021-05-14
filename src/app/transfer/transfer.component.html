@@ -1,1 +1,40 @@
-<p>transfer works!</p>
+<p>{{errorMessage}}</p>
+
+<div class="accountTo" *ngIf="accounts">
+  <p>Account from:</p>
+  <select class="acctFromMenu" [(ngModel)]="accountFrom">
+    <option [ngValue]="account" *ngFor="let account of accounts">{{account.accountType}} xxx-xxx-{{account.accountNumber % 1000}}</option>
+  </select>
+</div>
+
+<div class="accountAction">
+  <p>Action:</p>
+  <select class="actionMenu" [(ngModel)]="accountAction">
+    <option value="WITHDRAW">WITHDRAW</option>
+    <option value="DEPOSIT">DEPOSIT</option>
+    <option value="TRANSFER">TRANSFER</option>
+  </select>
+</div>
+
+<div class="actionAmount">
+  <p>Amount:</p>
+  <form>
+    <input [(ngModel)]="actAmt" placeholder="$0.00" name="formAmount">
+  </form>
+</div>
+
+<div class="accountTo" *ngIf="accountAction == 'TRANSFER'">
+  <p>Account to:</p>
+  <select class="acctToMenu" [(ngModel)]="accountTo">
+    <option [ngValue]="account" *ngFor="let account of accounts">{{account.accountType}} xxx-xxx-{{account.accountNumber % 1000}}</option>
+  </select>
+</div>
+
+
+<button (click)="submitAction()" routerLink="/checking">SUBMIT</button>
+<button routerLink="/home">CANCEL</button>
+<button routerLink="/help">HELP</button>
+<button (click)="createAccount()">Create</button>
+<button routerLink="..">CANCEL</button>
+<button routerLink="/help">HELP</button>
+
