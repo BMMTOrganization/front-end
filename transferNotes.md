@@ -22,5 +22,6 @@
 ## Need To Know
 * 
   
-## NEEDS TO BE DONE
-* Post and Put methods don't seem to be working....
+## 3:30
+* withdraw is working, but I need to make it flexible for whatever account is picked
+* then I can fix deposit
