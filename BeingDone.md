@@ -23,3 +23,7 @@
 * this might work. this might break
   * gonna redo the put method for withdraw to see if I need to pass in an entire account object
   and essentially reset the
+
+#### 1:18
+* am I losing my mind? Or am I finally thinking clearly?
+* Post account and delete account is working. Time to make the put work with withdraw/deposit
