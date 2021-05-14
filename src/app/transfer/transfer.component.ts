@@ -143,5 +143,4 @@ export class TransferComponent implements OnInit {
     this.allService.createAccount(makeAccount);
   }
 
-
 }
