@@ -36,8 +36,12 @@ export class CheckingAccountComponent implements OnInit {
   }
 
   print(): void {
-    this.allService.findAccountByNumber(987654321)
-      .subscribe(data => console.log(data));
+    this.allService.currentUser.subscribe(id => {
+      this.allService.userSingleAccount(id, 'Checking')
+        .subscribe((data: MoneyAccount) => {
+        console.log(data);
+      });
+  });
   }
 
   showMoreItems(): void {
@@ -52,15 +56,4 @@ export class CheckingAccountComponent implements OnInit {
     }
   }
 
-  showMoreItems(): void {
-    if (this.limit < 25) {
-      this.limit += 5;
-    }
-  }
-
-  showLessItems(): void {
-    if (this.limit > 5){
-      this.limit -= 5;
-    }
-  }
 }

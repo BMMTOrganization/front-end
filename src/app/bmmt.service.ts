@@ -68,13 +68,12 @@ export class BmmtService {
     return this.http.get<MoneyAccount>(`${this.mainUrl}/account/user/${userId}/${accountName}`);
   }
 
-  withdrawFunds(accountNumber: number, amount: number): Observable<MoneyAccount> {
-    const thisAccount = this.findAccountByNumber(accountNumber);
-    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/withdraw/${accountNumber}/${amount}`, thisAccount);
+  withdrawFunds(accountNumber: number, account: MoneyAccount): Observable<MoneyAccount> {
+    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/withdraw/${accountNumber}`, account);
   }
 
-  depositFunds(amount: number, accountNumber: number): Observable<MoneyAccount> {
-    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/deposit/${accountNumber}/${amount}`, this.httpOptions);
+  depositFunds(accountNumber: number, account: MoneyAccount): Observable<MoneyAccount> {
+    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/deposit/${accountNumber}/`, account);
   }
 
   transferFunds(amount: number, accountOne: number, accountTwo: number): Observable<MoneyAccount> {
