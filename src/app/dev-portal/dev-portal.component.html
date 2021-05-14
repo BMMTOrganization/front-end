@@ -1,5 +1,6 @@
 <h1 style="text-align: center">Developer Page</h1>
 
+<!---------New FAQ Submission Window--------->
 <div class="container">
 
   <div class="row">
@@ -7,9 +8,27 @@
   </div>
 
   <div class="row">
-    <input type="text" id="newAnswer" placeholder="Enter the answer here..." [(ngModel)]="answer">
+    <input type="text" id="newAnswer" placeholder="Enter the answer here..." [(ngModel)]="newAnswer">
   </div>
 
-  <button type="button" (click)="onSubmit(newQuestion, answer)"> Submit </button>
+  <button type="button" (click)="onSubmit1(newQuestion, newAnswer)"> Submit FAQ </button>
 
+</div>
+
+<!---------New Contact Submission Window--------->
+<div class="container">
+
+  <div class="row">
+    <input type="text" id="newContactName" placeholder="Enter new contact phone number here..." [(ngModel)]="newContactNumber">
+  </div>
+
+  <div class="row">
+    <input type="text" id="newContactEmail" placeholder="Enter new contact email here..." [(ngModel)]="newContactEmail">
+  </div>
+
+  <div class="row">
+    <input type="text" id="newContactNumber" placeholder="Enter new contact department here..." [(ngModel)]="newContactDepartment">
+  </div>
+
+  <button type="button" (click)="onSubmit2(newContactNumber, newContactEmail, newContactDepartment)"> Submit Contact </button>
 </div>
