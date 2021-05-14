@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BmmtService} from '../bmmt.service';
 import {MoneyAccount} from '../models/money-account';
+import {Transaction} from '../models/transaction';
 
 @Component({
   selector: 'app-transfer',
@@ -95,6 +96,7 @@ export class TransferComponent implements OnInit {
     } else if (this.accountFrom === 'INVESTMENT') {
       this.investmentAcct.balance -= amount;
     }
+    this.makeTransactionWD();
   }
 
   deposit(amount: number): void {
@@ -105,6 +107,7 @@ export class TransferComponent implements OnInit {
     } else if (this.accountFrom === 'INVESTMENT') {
       this.investmentAcct.balance += +amount;
     }
+    this.makeTransactionWD();
   }
 
   depositTransfer(amount: number): void {
@@ -154,5 +157,27 @@ export class TransferComponent implements OnInit {
       this.allService.depositFunds(this.investmentNumber, this.investmentAcct)
         .subscribe(account => this.allService.investment = account);
     }
+  }
+
+  makeTransactionWD(): void {
+    const transaction = new Transaction();
+    this.allService.userSingleAccount(this.id, this.accountFrom).subscribe(account => transaction.accountOne = account.accountNumber);
+    transaction.transactionDate = new Date();
+    transaction.transactionType = this.accountAction;
+    transaction.amount = Number(this.actAmt);
+    transaction.userId = this.id;
+    this.allService.createNewTransaction(transaction);
+    console.log(transaction);
+  }
+
+  makeTransactionT(): void {
+    const transaction = new Transaction();
+    this.allService.userSingleAccount(this.id, this.accountFrom).subscribe(account => transaction.accountOne = account.accountNumber);
+    this.allService.userSingleAccount(this.id, this.accountTo).subscribe(account => transaction.accountTwo = account.accountNumber);
+    transaction.transactionDate = new Date();
+    transaction.transactionType = this.accountAction;
+    transaction.amount = this.actAmt;
+    transaction.userId = this.id;
+    this.allService.createNewTransaction(transaction);
   }
 }
