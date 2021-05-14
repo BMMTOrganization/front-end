@@ -1,1 +1,22 @@
-<p>help works!</p>
+<h1 style="text-align: center">
+  Frequently Asked Questions
+</h1>
+<br>
+<br>
+
+<br>
+<!--<div class="box" style="align-content: center">-->
+<!--<button (click) = "share()"> Question: {{faqObject.question}}</button>-->
+<!--</div>-->
+<li *ngFor="let faq of faqs" >
+  -- id: {{ faq.id }}
+  -- question: {{ faq.question }}
+  -- answer: {{ faq.answer }}
+</li>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<router-outlet></router-outlet>
