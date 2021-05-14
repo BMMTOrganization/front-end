@@ -1,7 +1,9 @@
-<app-header></app-header>
 <h1 style="text-align: center">BMMT</h1>
 <input name="username" placeholder="USERNAME" [(ngModel)]="username">
 <input name="password" placeholder="PASSWORD" [(ngModel)]="password">
+
+
+<button (click)="login()" routerLink="home">LOGIN</button>
 
 
 <div class="wrapper fadeInDown">
@@ -25,4 +27,4 @@
     </div>
   </div>
 </div>
-<app-footer></app-footer>
+
