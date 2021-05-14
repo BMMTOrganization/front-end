@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'checking', component: CheckingAccountComponent},
   { path: 'savings', component: SavingsAccountComponent},
   { path: 'investment', component: InvestmentAccountComponent},
+  { path: 'login', component: LoginComponent },
   { path: 'Create-Profile', component: UserProfileComponent},
   { path: 'transfer', component: TransferComponent },
   { path: 'devPage', component: DevPortalComponent  },

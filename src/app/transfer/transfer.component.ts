@@ -69,4 +69,20 @@ export class TransferComponent implements OnInit {
     //   .subscribe(list => console.log(list));
     this.allService.createAccount(this.accountMaker());
   }
+
+  submitAction(): void {
+    if (this.accountAction === 'WITHDRAW') {
+      this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
+      // this.allService.currentUser.subscribe(id => {
+      //   this.allService.userSingleAccount(id, this.accountFrom)
+      //     .subscribe(data => this.accountFromBalance = data.balance);
+      // });
+      // if (this.accountFromBalance < this.actAmt) {
+      //   this.errorMessage = 'NOT ENOUGH FUNDS';
+      // } else {
+      //   // catches enough money
+      //   this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
+      // }
+    }
+  }
 }
