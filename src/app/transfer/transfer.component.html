@@ -3,7 +3,7 @@
 <div class="accountTo" *ngIf="accounts">
   <p>Account from:</p>
   <select class="acctFromMenu" [(ngModel)]="accountFrom">
-    <option [ngValue]="account" *ngFor="let account of accounts">{{account.accountType}} xxx-xxx-{{account.accountNumber % 1000}}</option>
+    <option [ngValue]="account.accountType" *ngFor="let account of accounts">{{account.accountType}} xxx-xxx-{{account.accountNumber % 1000}}</option>
   </select>
 </div>
 
@@ -31,10 +31,11 @@
 </div>
 
 
-<button (click)="submitAction()" routerLink="/checking">SUBMIT</button>
+<button (click)="submitAction()" routerLink="/home">SUBMIT</button>
 <button routerLink="/home">CANCEL</button>
 <button routerLink="/help">HELP</button>
 <button (click)="createAccount()">Create</button>
+<button (click)="printThatShit()">PRINT</button>
 <button routerLink="..">CANCEL</button>
 <button routerLink="/help">HELP</button>
 
