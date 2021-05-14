@@ -54,17 +54,19 @@ export class TransferComponent implements OnInit {
     this.allService.withdrawFunds(987654321, 20.00);
   }
 
-  createAccount(): void {
-    // this.allService.findAllUserAccounts(23)
-    //   .subscribe(list => console.log(list));
+  accountMaker(): MoneyAccount {
     const dummyAccount = new MoneyAccount();
     dummyAccount.id = 10;
     dummyAccount.accountNumber = 654321789;
     dummyAccount.accountType = 'Checking';
     dummyAccount.balance = 350.24;
     dummyAccount.userId = 25;
-    this.allService.createAccount(dummyAccount);
-    this.allService.userSingleAccount(25, 'Checking')
-      .subscribe(data => console.log(data));
+    return dummyAccount;
+  }
+
+  createAccount(): void {
+    // this.allService.findAllUserAccounts(23)
+    //   .subscribe(list => console.log(list));
+    this.allService.createAccount(this.accountMaker());
   }
 }
