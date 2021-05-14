@@ -36,7 +36,8 @@ export class CheckingAccountComponent implements OnInit {
   }
 
   print(): void {
-    console.log(this.checking);
+    this.allService.findAccountByNumber(987654321)
+      .subscribe(data => console.log(data));
   }
 
   showMoreItems(): void {

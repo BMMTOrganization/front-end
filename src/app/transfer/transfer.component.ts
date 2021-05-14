@@ -49,18 +49,22 @@ export class TransferComponent implements OnInit {
   }
 
   submitAction(): void {
-    if (this.accountAction === 'WITHDRAW') {
-      this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
-      // this.allService.currentUser.subscribe(id => {
-      //   this.allService.userSingleAccount(id, this.accountFrom)
-      //     .subscribe(data => this.accountFromBalance = data.balance);
-      // });
-      // if (this.accountFromBalance < this.actAmt) {
-      //   this.errorMessage = 'NOT ENOUGH FUNDS';
-      // } else {
-      //   // catches enough money
-      //   this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
-      // }
-    }
+    // console.log(this.checkingNumber + '  ' + this.actAmt);
+    // this.allService.withdrawFunds(this.checkingNumber, this.actAmt);
+    this.allService.withdrawFunds(987654321, 20.00);
+  }
+
+  createAccount(): void {
+    // this.allService.findAllUserAccounts(23)
+    //   .subscribe(list => console.log(list));
+    const dummyAccount = new MoneyAccount();
+    dummyAccount.id = 10;
+    dummyAccount.accountNumber = 654321789;
+    dummyAccount.accountType = 'Checking';
+    dummyAccount.balance = 350.24;
+    dummyAccount.userId = 25;
+    this.allService.createAccount(dummyAccount);
+    this.allService.userSingleAccount(25, 'Checking')
+      .subscribe(data => console.log(data));
   }
 }
