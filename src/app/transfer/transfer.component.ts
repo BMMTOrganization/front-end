@@ -70,12 +70,6 @@ export class TransferComponent implements OnInit {
     });
   }
 
-  printThatShit(): void {
-    console.log(this.checkingNumber);
-    console.log(this.savingsNumber);
-    console.log(this.investmentNumber);
-    console.log(this.actAmt);
-  }
 
   submitAction(): void {
     if (this.accountAction === 'WITHDRAW') {
