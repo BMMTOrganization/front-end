@@ -22,19 +22,19 @@ export class BmmtService {
   mainUrl: string;
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
   constructor(private http: HttpClient) {
     this.mainUrl = 'http://localhost:8080';
     this.headers = new HttpHeaders(
-        {
-          'Access-Control-Allow-Origin' : '*',
-          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-          'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
-          'Content-Type': 'application/json'
-        }
-      );
+      {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept',
+        'Content-Type': 'application/json'
+      }
+    );
   }
 
   setUser(id: number): void {
@@ -101,6 +101,20 @@ export class BmmtService {
     return this.http.get<UserProfile>(this.mainUrl + `/user/username/${userName}`);
   }
 
+  createUserProfile(userProfile: UserProfile): Observable<UserProfile> {
+    const body = JSON.stringify(userProfile);
+    return this.http.post<UserProfile>(`${this.mainUrl}/user`, body);
+  }
+  getUserProfile(ID: number): Observable<UserProfile>{
+    return this.http.get<UserProfile>(`${this.mainUrl}/user/${ID}`);
+  }
+  updateUserProfile(ID: number): Observable<UserProfile> {
+    const body = JSON.stringify(UserProfile);
+    return this.http.post<UserProfile>(`${this.mainUrl}/user/${ID}`, body);
+  }
+  deleteUserProfile(ID: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.mainUrl}/user/${ID}`);
+  }
   // FAQ Methods
 
   public getAllFAQs(): Observable<Faq[]> {
