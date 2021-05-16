@@ -7,24 +7,24 @@
 <!--<button (click)="login()" routerLink="home">LOGIN</button>-->
 
 
-<div class="wrapper fadeInDown">
-  <div id="formCont">
-    <!-- Tabs Titles -->
-    <!-- Icon -->
-    <div class="fadeIn first"><p style="text-align:center">
-      <img src="" id="icon" alt="User Icon" /></p>
-    </div>
-    <!-- Login Form -->
-    <form><p style="text-align:center">
-      <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username" [(ngModel)]="username"><br>
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" [(ngModel)]="password"><br>
-      <br>
-      <button (click)="login()" routerLink="home">Log In</button><br>
-      <nav routerLink="/Create-Profile"><p style="text-align:center"><button>Create Account</button></p></nav>
-    </form>
-    <!-- Remind Passowrd -->
-    <div id="formFoot"><p style="text-align:center">
-      <a class="underlineHover" href="#">Forgot Password?</a></p>
+<!--<div class="wrapper fadeInDown">-->
+<!--  <div id="formCont">-->
+<!--    &lt;!&ndash; Tabs Titles &ndash;&gt;-->
+<!--    &lt;!&ndash; Icon &ndash;&gt;-->
+<!--    <div class="fadeIn first"><p style="text-align:center">-->
+<!--      <img src="" id="icon" alt="User Icon" /></p>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Login Form &ndash;&gt;-->
+<!--    <form><p style="text-align:center">-->
+<!--      <input type="text" id="username" class="fadeIn second" name="username" placeholder="Username" [(ngModel)]="username"><br>-->
+<!--      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password" [(ngModel)]="password"><br>-->
+<!--      <br>-->
+<!--      <button (click)="login()" routerLink="home">Log In</button><br>-->
+<!--      <nav routerLink="/Create-Profile"><p style="text-align:center"><button>Create Account</button></p></nav>-->
+<!--    </form>-->
+<!--    &lt;!&ndash; Remind Passowrd &ndash;&gt;-->
+<!--    <div id="formFoot"><p style="text-align:center">-->
+<!--      <a class="underlineHover" href="#">Forgot Password?</a></p>-->
 
 <br>
 <br>
@@ -46,10 +46,10 @@
                 </div>
                 <!-- Login Form -->
                 <form><p style="text-align:center">
-                  <input type="text" id="Username" class="fadeIn second" name="Username" placeholder="Username"><br>
-                  <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"><br>
+                  <input type="text" id="username" class="fadeIn second" name="Username" placeholder="Username" [(ngModel)]="username"><br>
+                  <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="password"><br>
                   <br>
-                  <button (click)="login()"routerLink="home">Log In</button><br>
+                  <button (click)="login()" routerLink="home">Log In</button><br>
 
                   <nav routerLink="/Create-Profile"><p style="text-align:center"><button>Create Account</button></p></nav>
                 </form>
