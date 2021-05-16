@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { SavingsAccountComponent } from './savings-account/savings-account.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
 import {Faq} from "../models/faq";
 import {BmmtService} from "../bmmt.service";
+import {Contact} from '../models/contact';
 
 @Component({
   selector: 'app-help',
@@ -12,16 +13,20 @@ export class HelpComponent implements OnInit, DoCheck{
   public faqs: Faq[] = [];
   answer: string;
 
+  public contacts: Contact[] = [];
 
-  constructor(private faqService: BmmtService) {
-    this.faqService.getAllFAQs().subscribe((res)=> {
+
+  constructor(private service: BmmtService) {
+    this.service.getAllFAQs().subscribe((res)=> {
       this.faqs = res;
       console.log(this.faqs);
       console.log(this.faqs[0].id);
       console.log(this.faqs[0].question);
       console.log(this.faqs[0].answer);
     });
-
+    this.service.getAllContacts().subscribe((res)=> {
+      this.contacts = res;
+    });
   }
 
   ngOnInit() {
