@@ -83,7 +83,7 @@ export class BmmtService {
   // transaction methods
 
   findAllTransactions(): Observable<Iterable<Transaction>> {
-    return this.http.get<Iterable<Transaction>>(`${this.mainUrl}/transaction/all`);
+    return this.http.get<Iterable<Transaction>>(`${this.mainUrl}/transaction/all`, this.httpOptions);
   }
 
   findUserTransactions(userId: number): Observable<any> {
@@ -96,7 +96,8 @@ export class BmmtService {
 
   createNewTransaction(transaction: Transaction): Observable<Transaction> {
     const body = JSON.stringify(transaction);
-    return this.http.post<Transaction>(`${this.mainUrl}/transaction`, body);
+    console.log(body);
+    return this.http.post<Transaction>(`${this.mainUrl}/transaction`, body, this.httpOptions);
   }
 
   // user methods
