@@ -17,5 +17,12 @@
 <br>
 <br>
 <br>
-
+<li *ngFor="let contact of contacts" >
+  Contact Us
+  <br>
+  - Department: {{ contact.department }}
+  - Phone Number: {{ contact.number }}
+  -Email Address: {{ contact.email}}
+  <br>
+</li>
 <router-outlet></router-outlet>
