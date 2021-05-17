@@ -15,6 +15,7 @@ export class CheckingAccountComponent implements OnInit {
   checking: MoneyAccount;
   transactions: any[];
   limit = 5;
+  error: string;
 
   constructor(private allService: BmmtService) { }
 
@@ -56,4 +57,21 @@ export class CheckingAccountComponent implements OnInit {
     }
   }
 
+  closeAccount(): boolean {
+    if (this.checking.balance !== 0) {
+      return false;
+    } else {
+      // account is zero
+      return true;
+    }
+  }
+
+  deleteAccount(): void {
+    if (this.closeAccount()) {
+      console.log(this.checking.accountNumber);
+      this.allService.deleteAccount(this.checking.accountNumber);
+    } else {
+      this.error = 'Account needs to be zeroed out';
+    }
+  }
 }

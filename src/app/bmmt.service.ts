@@ -61,7 +61,7 @@ export class BmmtService {
   }
 
   deleteAccount(accountNumber: number): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.mainUrl}/delete/${accountNumber}`);
+    return this.http.delete<boolean>(`${this.mainUrl}/account/delete/number/${accountNumber}`);
   }
 
   userSingleAccount(userId: number, accountName: string): Observable<MoneyAccount> {
