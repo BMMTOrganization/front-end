@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   }
 
   getChecking(): void {
-    this.allService.userSingleAccount(this.userId, 'CHECKING')
+    this.allService.userSingleAccount(this.userId, 'Checking')
       .subscribe(account => this.allService.checking = account);
   }
 

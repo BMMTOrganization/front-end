@@ -33,8 +33,11 @@
 </div>
 </div>
 
+<h4 *ngIf="error">{{ error }}</h4>
+
 <button routerLink="/home">HOME</button>
 <button routerLink="/transfer">ACCOUNT ACTIONS</button>
 <button routerLink="/help">HELP</button>
 <button routerLink="/savings">SAVINGS</button>
 <button routerLink="/investment">INVESTMENT</button>
+<button (click)="deleteAccount()" routerLink="/home">CLOSE ACCOUNT</button>
