@@ -1,6 +1,4 @@
-<br>
-<br>
-<br>
+
 <div class="container px-4 py-5 mx-auto">
   <div class="card card0">
     <div class="d-flex flex-lg-row flex-column-reverse">
@@ -18,12 +16,11 @@
                 </div>
                 <!-- Login Form -->
                 <form><p style="text-align:center">
-                  <input type="text" id="Username" class="fadeIn second" name="Username" placeholder="Username"><br>
-                  <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"><br>
+                  <input type="text" id="username" class="fadeIn second" name="Username" placeholder="Username" [(ngModel)]="username"><br>
+                  <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="password"><br>
                   <br>
-                  <button (click)="login()"routerLink="home">Log In</button><br>
-
-                  <nav routerLink="/Create-Profile"><p style="text-align:center"><button>Create Account</button></p></nav>
+                  <button (click)="login()" routerLink="home" class="btn btn-white ml-2">Login</button><br>
+                  <nav routerLink="/Create-Profile"><p style="text-align:center"><button class="btn btn-white ml-2">Create Account</button></p></nav>
                 </form>
                 <!-- Remind Passowrd -->
                 <div id="formFooter"><p style="text-align:center">
@@ -35,9 +32,6 @@
             -- <div class="form-group"> <label class="form-control-label text-muted">Password</label> <input type="password" id="psw" name="psw" placeholder="Password" class="form-control"> </div>-->
             <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted"></small></a> </div>
           </div>
-        </div>
-        <div class="bottom text-center mb-5">
-          <p href="#" class="sm-text mx-auto mb-3"><button class="btn btn-white ml-2"></button></p>
         </div>
       </div>
       <div class="card card2">

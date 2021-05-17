@@ -29,3 +29,7 @@
 ## 4:00
 * withdraw works. takes in accountType from form and amount. Does math on front end to pass entire object to back end
 * on to deposit
+
+## 5:10
+* transaction needs to be made and added to transaction table whenever one occurs
+  * I'm thinking that if I can utilize the service class to make and post it, it should automatically pop up for account

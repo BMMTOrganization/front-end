@@ -2,6 +2,7 @@ body {
   color: #000;
   overflow-x: hidden;
   height: 100%;
+
   background-image: linear-gradient(to right, #D500F9, #2457ad);
   background-repeat: no-repeat
 }
@@ -158,5 +159,11 @@ a:hover {
   .right {
     margin-top: 50px !important;
     margin-bottom: 50px !important
+  }
+
+  .bottom-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 }
