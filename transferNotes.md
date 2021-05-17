@@ -18,5 +18,18 @@
   * help
   * submit
   
-## NEEDS TO BE DONE
-* Post and Put methods don't seem to be working....
+
+## Need To Know
+* 
+  
+## 3:30
+* withdraw is working, but I need to make it flexible for whatever account is picked
+* then I can fix deposit
+
+## 4:00
+* withdraw works. takes in accountType from form and amount. Does math on front end to pass entire object to back end
+* on to deposit
+
+## 5:10
+* transaction needs to be made and added to transaction table whenever one occurs
+  * I'm thinking that if I can utilize the service class to make and post it, it should automatically pop up for account

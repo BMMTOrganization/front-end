@@ -20,7 +20,17 @@ export class HomeComponent implements OnInit {
   }
 
   getChecking(): void {
-    this.allService.userSingleAccount(this.userId, 'CHECKING')
+    this.allService.userSingleAccount(this.userId, 'Checking')
       .subscribe(account => this.allService.checking = account);
+  }
+
+  getSavings(): void {
+    this.allService.userSingleAccount(this.userId, 'SAVINGS')
+      .subscribe(account => this.allService.savings = account);
+  }
+
+  getInvestment(): void {
+    this.allService.userSingleAccount(this.userId, 'INVESTMENT')
+      .subscribe(account => this.allService.investment = account);
   }
 }

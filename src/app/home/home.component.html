@@ -1,8 +1,22 @@
-<h1>HOME</h1>
 
-<p>home works!</p>
+<div class="card card2">
+  <div class="my-auto mx-md-5 px-md-5 right">
+    <p style="text-align:center;">
 
-<button (click)="print()">print info</button>
-<button (click)="getChecking()" routerLink="/checking">Checking Account</button>
+<!--<button (click)="getChecking()" routerLink="/checking">Checking Account</button>-->
+<!--<button (click)="getSavings()" routerLink="/savings">SAVINGS</button>-->
+<!--<button (click)="getInvestment()" routerLink="/investment">INVESTMENT</button>-->
+<!--<button routerLink="/help">HELP</button>-->
+    <h3 class="text-white"><h1><p style="text-align:center;">BMMT</p></h1>
+
+    <button (click)="getChecking()" routerLink="/checking">CHECKING</button>
+    <button (click)="getSavings()" routerLink="/savings">SAVINGS</button>
+    <button (click)="getInvestment()" routerLink="/investment">INVESTMENT</button>
+  </h3>
+    <ng-container name="bottom-links">
+    <small class="text-white"><p style="text-align:center;">Log out | Help | FAQ</p></small>
+    </ng-container>
+  </div>
+  </div>
 
 <router-outlet></router-outlet>

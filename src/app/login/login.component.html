@@ -1,30 +1,44 @@
-<h1 style="text-align: center">BMMT</h1>
-<input name="username" placeholder="USERNAME" [(ngModel)]="username">
-<input name="password" placeholder="PASSWORD" [(ngModel)]="password">
 
-
-<button (click)="login()" routerLink="home">LOGIN</button>
-
-
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-    <!-- Icon -->
-    <div class="fadeIn first"><p style="text-align:center">
-      <img src="" id="icon" alt="User Icon" /></p>
-    </div>
-    <!-- Login Form -->
-    <form><p style="text-align:center">
-      <input type="text" id="Username" class="fadeIn second" name="Username" placeholder="Username"><br>
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password"><br>
-      <br>
-      <button (click)="login()" routerLink="home">Log In</button><br>
-      <nav routerLink="/Create-Profile"><p style="text-align:center"><button>Create Account</button></p></nav>
-    </form>
-    <!-- Remind Passowrd -->
-    <div id="formFooter"><p style="text-align:center">
-      <a class="underlineHover" href="#">Forgot Password?</a></p>
+<div class="container px-4 py-5 mx-auto">
+  <div class="card card0">
+    <div class="d-flex flex-lg-row flex-column-reverse">
+      <div class="card card1">
+        <div class="row justify-content-center my-auto">
+          <div class="col-md-8 col-10 my-5">
+            <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="https://i.imgur.com/PSXxjNY.png"> </div>
+            <h3 class="mb-5 text-center heading">We are BMMT</h3>
+            <div class="wrapper fadeInDown">
+              <div id="formContent">
+                <!-- Tabs Titles -->
+                <!-- Icon -->
+                <div class="fadeIn first"><p style="text-align:center">
+                <h6 class="msg-info">Please login to your account</h6>
+                </div>
+                <!-- Login Form -->
+                <form><p style="text-align:center">
+                  <input type="text" id="username" class="fadeIn second" name="Username" placeholder="Username" [(ngModel)]="username"><br>
+                  <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="password"><br>
+                  <br>
+                  <button (click)="login()" routerLink="home" class="btn btn-white ml-2">Login</button><br>
+                  <nav routerLink="/Create-Profile"><p style="text-align:center"><button class="btn btn-white ml-2">Create Account</button></p></nav>
+                </form>
+                <!-- Remind Passowrd -->
+                <div id="formFooter"><p style="text-align:center">
+                  <a class="underlineHover" href="#">Forgot Password?</a></p>
+                </div>
+              </div>
+            </div><h6 class="msg-info"></h6>
+            <!-- <div class="form-group"> <label class="form-control-label text-muted">Username</label> <input type="text" id="email" name="email" placeholder="Phone no or email id" class="form-control"> </div>
+            -- <div class="form-group"> <label class="form-control-label text-muted">Password</label> <input type="password" id="psw" name="psw" placeholder="Password" class="form-control"> </div>-->
+            <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted"></small></a> </div>
+          </div>
+        </div>
+      </div>
+      <div class="card card2">
+        <div class="my-auto mx-md-5 px-md-5 right">
+          <h3 class="text-white">We are more than just a company</h3> <small class="text-white">We are one of the most visited sites for financial literacy, and advice. Get started with BMMT today.</small>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-

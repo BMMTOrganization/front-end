@@ -61,20 +61,19 @@ export class BmmtService {
   }
 
   deleteAccount(accountNumber: number): Observable<boolean> {
-    return this.http.delete<boolean>(`${this.mainUrl}/delete/${accountNumber}`);
+    return this.http.delete<boolean>(`${this.mainUrl}/account/delete/number/${accountNumber}`);
   }
 
   userSingleAccount(userId: number, accountName: string): Observable<MoneyAccount> {
     return this.http.get<MoneyAccount>(`${this.mainUrl}/account/user/${userId}/${accountName}`);
   }
 
-  withdrawFunds(accountNumber: number, amount: number): Observable<MoneyAccount> {
-    const thisAccount = this.findAccountByNumber(accountNumber);
-    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/withdraw/${accountNumber}/${amount}`, thisAccount);
+  withdrawFunds(accountNumber: number, account: MoneyAccount): Observable<MoneyAccount> {
+    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/withdraw/${accountNumber}`, account);
   }
 
-  depositFunds(amount: number, accountNumber: number): Observable<MoneyAccount> {
-    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/deposit/${accountNumber}/${amount}`, this.httpOptions);
+  depositFunds(accountNumber: number, account: MoneyAccount): Observable<MoneyAccount> {
+    return this.http.put<MoneyAccount>(`${this.mainUrl}/account/deposit/${accountNumber}/`, account);
   }
 
   transferFunds(amount: number, accountOne: number, accountTwo: number): Observable<MoneyAccount> {
@@ -84,7 +83,7 @@ export class BmmtService {
   // transaction methods
 
   findAllTransactions(): Observable<Iterable<Transaction>> {
-    return this.http.get<Iterable<Transaction>>(`${this.mainUrl}/transaction/all`);
+    return this.http.get<Iterable<Transaction>>(`${this.mainUrl}/transaction/all`, this.httpOptions);
   }
 
   findUserTransactions(userId: number): Observable<any> {
@@ -97,7 +96,8 @@ export class BmmtService {
 
   createNewTransaction(transaction: Transaction): Observable<Transaction> {
     const body = JSON.stringify(transaction);
-    return this.http.post<Transaction>(`${this.mainUrl}/transaction`, body);
+    console.log(body);
+    return this.http.post<Transaction>(`${this.mainUrl}/transaction`, body, this.httpOptions);
   }
 
   // user methods

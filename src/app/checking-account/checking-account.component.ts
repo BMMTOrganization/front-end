@@ -15,6 +15,7 @@ export class CheckingAccountComponent implements OnInit {
   checking: MoneyAccount;
   transactions: any[];
   limit = 5;
+  error: string;
 
   constructor(private allService: BmmtService) { }
 
@@ -36,8 +37,12 @@ export class CheckingAccountComponent implements OnInit {
   }
 
   print(): void {
-    this.allService.findAccountByNumber(987654321)
-      .subscribe(data => console.log(data));
+    this.allService.currentUser.subscribe(id => {
+      this.allService.userSingleAccount(id, 'Checking')
+        .subscribe((data: MoneyAccount) => {
+        console.log(data);
+      });
+  });
   }
 
   showMoreItems(): void {
@@ -52,15 +57,21 @@ export class CheckingAccountComponent implements OnInit {
     }
   }
 
-  showMoreItems(): void {
-    if (this.limit < 25) {
-      this.limit += 5;
+  closeAccount(): boolean {
+    if (this.checking.balance !== 0) {
+      return false;
+    } else {
+      // account is zero
+      return true;
     }
   }
 
-  showLessItems(): void {
-    if (this.limit > 5){
-      this.limit -= 5;
+  deleteAccount(): void {
+    if (this.closeAccount()) {
+      console.log(this.checking.accountNumber);
+      this.allService.deleteAccount(this.checking.accountNumber);
+    } else {
+      this.error = 'Account needs to be zeroed out';
     }
   }
 }
