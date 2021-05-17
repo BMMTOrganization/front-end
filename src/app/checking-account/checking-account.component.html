@@ -40,4 +40,4 @@
 <button routerLink="/help">HELP</button>
 <button routerLink="/savings">SAVINGS</button>
 <button routerLink="/investment">INVESTMENT</button>
-<button (click)="deleteAccount()" routerLink="/home">CLOSE ACCOUNT</button>
+<button (click)="deleteAccount()" *ngIf="!error">CLOSE ACCOUNT</button>

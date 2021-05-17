@@ -125,6 +125,7 @@ export class BmmtService {
   deleteUserProfile(ID: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.mainUrl}/user/${ID}`);
   }
+
   // FAQ Methods
 
   public getAllFAQs(): Observable<Faq[]> {
