@@ -67,11 +67,12 @@ export class CheckingAccountComponent implements OnInit {
   }
 
   deleteAccount(): void {
-    if (this.closeAccount()) {
-      console.log(this.checking.accountNumber);
-      this.allService.deleteAccount(this.checking.accountNumber);
-    } else {
-      this.error = 'Account needs to be zeroed out';
-    }
+    // if (this.closeAccount()) {
+    //   console.log(this.checking.id);
+    //   this.allService.deleteById(20);
+    // } else {
+    //   this.error = 'Account needs to be zeroed out';
+    // }
+    this.allService.deleteById(21);
   }
 }
