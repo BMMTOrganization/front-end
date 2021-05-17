@@ -70,7 +70,7 @@ export class CheckingAccountComponent implements OnInit {
     if (this.closeAccount()) {
       this.allService.deleteById(this.checking.id).subscribe();
     } else {
-      this.error = 'Account needs to be zeroed out';
+      window.alert('Account needs to be emptied out');
     }
   }
 }
