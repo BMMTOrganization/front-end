@@ -64,6 +64,10 @@ export class BmmtService {
     return this.http.delete<boolean>(`${this.mainUrl}/account/delete/number/${accountNumber}`);
   }
 
+  deleteById(Id: number): Observable<boolean> {
+    return this.http.delete<boolean>(this.mainUrl + `/account/delete/` + Id);
+  }
+
   userSingleAccount(userId: number, accountName: string): Observable<MoneyAccount> {
     return this.http.get<MoneyAccount>(`${this.mainUrl}/account/user/${userId}/${accountName}`);
   }
@@ -121,6 +125,7 @@ export class BmmtService {
   deleteUserProfile(ID: number): Observable<boolean> {
     return this.http.delete<boolean>(`${this.mainUrl}/user/${ID}`);
   }
+
   // FAQ Methods
 
   public getAllFAQs(): Observable<Faq[]> {

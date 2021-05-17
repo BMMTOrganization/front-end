@@ -68,8 +68,7 @@ export class CheckingAccountComponent implements OnInit {
 
   deleteAccount(): void {
     if (this.closeAccount()) {
-      console.log(this.checking.accountNumber);
-      this.allService.deleteAccount(this.checking.accountNumber);
+      this.allService.deleteById(this.checking.id).subscribe();
     } else {
       this.error = 'Account needs to be zeroed out';
     }
