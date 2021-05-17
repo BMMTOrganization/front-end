@@ -73,6 +73,6 @@ export class CheckingAccountComponent implements OnInit {
     // } else {
     //   this.error = 'Account needs to be zeroed out';
     // }
-    this.allService.deleteById(21);
+    this.allService.deleteById(21).subscribe();
   }
 }
