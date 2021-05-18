@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Faq} from "../models/faq";
-import {BmmtService} from "../bmmt.service";
+import {Faq} from '../models/faq';
+import {BmmtService} from '../bmmt.service';
 import {Contact} from '../models/contact';
 
 @Component({
@@ -22,12 +22,12 @@ export class DevPortalComponent implements OnInit {
 
 
 
-  constructor(private service:BmmtService) {}
+  constructor(private service: BmmtService) {}
 
 
   ngOnInit() {
-    this.newFaq = new Faq(0,"","");
-    this.newContact = new Contact(0,"","","");
+    this.newFaq = new Faq(0, '', '');
+    this.newContact = new Contact(0, '', '', '');
     console.log(this.newFaq);
     console.log(this.newContact);
 
