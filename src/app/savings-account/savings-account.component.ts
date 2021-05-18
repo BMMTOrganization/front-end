@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MoneyAccount} from '../models/money-account';
 import {BmmtService} from '../bmmt.service';
+import {Transaction} from '../models/transaction';
 
 @Component({
   selector: 'app-savings-account',
@@ -8,10 +9,10 @@ import {BmmtService} from '../bmmt.service';
   styleUrls: ['./savings-account.component.css']
 })
 export class SavingsAccountComponent implements OnInit {
-  id: number;
-  accountNumber: number;
-  savings: MoneyAccount;
-  transactions: any[];
+  id = 0;
+  accountNumber = 0;
+  savings = new MoneyAccount();
+  transactions: Transaction[] = [];
   limit = 5;
 
   constructor(private allService: BmmtService) { }
