@@ -1,10 +1,12 @@
 import {Transaction} from './transaction';
 
 export class MoneyAccount{
-  id: number;
-  accountType: string;
-  balance: number;
-  accountNumber: number;
-  userId: number;
-  transactions: Transaction[];
+  constructor(
+  public id: number,
+  public accountType: string,
+  public balance: number,
+  public accountNumber: number,
+  public userId: number,
+  public transactions: Transaction[]
+  ) {}
 }
