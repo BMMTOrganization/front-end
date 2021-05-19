@@ -17,12 +17,15 @@
 <br>
 <br>
 <br>
-<li *ngFor="let contact of contacts" >
+
+<div class="container">
   Contact Us
   <br>
+<li *ngFor="let contact of contacts" >
   - Department: {{ contact.department }}
   - Phone Number: {{ contact.number }}
   -Email Address: {{ contact.email}}
   <br>
 </li>
+</div>
 <router-outlet></router-outlet>

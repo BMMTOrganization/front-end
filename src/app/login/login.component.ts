@@ -7,7 +7,7 @@ import {BmmtService} from '../bmmt.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  id: number;
+  id = 0;
   username = '';
   password = '';
 

@@ -9,20 +9,19 @@ import {Transaction} from '../models/transaction';
   styleUrls: ['./transfer.component.css']
 })
 export class TransferComponent implements OnInit {
-  id: number;
-  checkingNumber: number;
-  savingsNumber: number;
-  investmentNumber: number;
-  checkingAcct: MoneyAccount;
-  savingsAcct: MoneyAccount;
-  investmentAcct: MoneyAccount;
-  accountAction: string;
-  actAmt: number;
-  accounts: any[];
-  accountFrom: string;
-  accountTo: string;
-  errorMessage: string;
-  accountFromBalance: number;
+  id = 0;
+  checkingNumber = 0;
+  savingsNumber = 0;
+  investmentNumber = 0;
+  checkingAcct = new MoneyAccount();
+  savingsAcct = new MoneyAccount();
+  investmentAcct = new MoneyAccount();
+  accountAction = '';
+  actAmt = 0;
+  accounts: MoneyAccount[] = [];
+  accountFrom = '';
+  accountTo = '';
+  errorMessage = '';
 
 
   constructor(private allService: BmmtService) { }
