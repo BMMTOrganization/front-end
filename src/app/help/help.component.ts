@@ -11,7 +11,7 @@ import {Contact} from '../models/contact';
 export class HelpComponent implements OnInit, DoCheck{
 
   public faqs: Faq[] = [];
-  answer: string;
+  answer = '';
 
   public contacts: Contact[] = [];
 

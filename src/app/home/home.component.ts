@@ -7,7 +7,7 @@ import {BmmtService} from '../bmmt.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  userId: number;
+  userId = 0;
 
   constructor(private allService: BmmtService) { }
 

@@ -8,17 +8,18 @@ import {Contact} from '../models/contact';
   templateUrl: './dev-portal.component.html',
   styleUrls: ['./dev-portal.component.css']
 })
-export class DevPortalComponent implements OnInit {
-  private newFaq: Faq;
-  faqID: number;
-  newQuestion: string;
-  newAnswer: string;
 
-  private newContact: Contact;
-  contactID: number;
-  newContactNumber: string;
-  newContactEmail: string;
-  newContactDepartment: string;
+export class DevPortalComponent implements OnInit {
+  private newFaq: Faq = new Faq(0, '', '');
+  faqID: number = 0;
+  newQuestion: string = '';
+  newAnswer: string = '';
+
+  private newContact: Contact = new Contact(0, '', '', '');
+  contactID: number = 0;
+  newContactNumber: string = '';
+  newContactEmail: string = '';
+  newContactDepartment: string = '';
 
 
 
