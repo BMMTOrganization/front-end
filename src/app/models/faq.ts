@@ -10,12 +10,10 @@ export class Faq {
     this.answer = answer;
   }
 
-  // tslint:disable-next-line:typedef
   public setQuestion(question: string){
     this.question = question;
   }
 
-  // tslint:disable-next-line:typedef
   public setAnswer(answer: string){
     this.answer = answer;
   }
