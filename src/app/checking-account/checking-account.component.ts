@@ -10,12 +10,12 @@ import {Transaction} from '../models/transaction';
   styleUrls: ['./checking-account.component.css']
 })
 export class CheckingAccountComponent implements OnInit {
-  id: number;
-  accountNumber: number;
-  checking: MoneyAccount;
-  transactions: any[];
+  id = 0;
+  accountNumber = 0;
+  checking = new MoneyAccount();
+  transactions: Transaction[] = [];
   limit = 5;
-  error: string;
+  error = '';
 
   constructor(private allService: BmmtService) { }
 
