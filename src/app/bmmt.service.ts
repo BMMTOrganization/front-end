@@ -14,11 +14,9 @@ export class BmmtService {
   private userId = new BehaviorSubject<number>(0);
   currentUser = this.userId.asObservable();
 
-  checking: MoneyAccount;
-  savings: MoneyAccount;
-  investment: MoneyAccount;
-  // currentUser: UserProfile;
-  headers: HttpHeaders;
+  checking = new MoneyAccount();
+  savings = new MoneyAccount();
+  investment = new MoneyAccount();
   mainUrl: string;
 
   httpOptions = {
